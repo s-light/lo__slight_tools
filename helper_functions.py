@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Save the Active Document with new current timeStamp.
+Helper Functions..
 
 based on
 https://wiki.documentfoundation.org/Macros/Python_Guide/Documents
