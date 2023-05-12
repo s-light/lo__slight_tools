@@ -118,31 +118,124 @@ def statusbar_animate_progress(text, target=10):
 ######################################################
 
 
+def convert_timestampstring_to_format(timestamp):
+    timestamp_format = "%Y%m%d"
+    # (20[0-9]{2}-??[0-9]{2}-??[0-9]{2})
+    # ([-_\s\:])?
+    # ([0-9]{2}-??[0-9]{2})?
+    re_timestamp = re.compile(
+        r"""
+            (?P<date>
+                20[0-9]{2}
+                (?P<date_sep1>[-_\s:])?
+                [0-9]{2}
+                (?P<date_sep2>[-_\s:])?
+                [0-9]{2}
+            )
+            (?P<time>
+                (?P<dt_separator>[-_\s])?
+                [0-9]{2}
+                (?P<time_sep1>[-_\s:])?
+                [0-9]{2}
+            )?
+        """,
+        flags=re.VERBOSE,
+    )
+    if timestamp:
+        re_timestamp_match = re_timestamp.search(timestamp)
+        if re_timestamp_match:
+            groups = re_timestamp_match.groupdict()
+            timestamp_format = (
+                ""
+                + "%Y"
+                + (groups["date_sep1"] if groups["date_sep1"] else "")
+                + "%m"
+                + (groups["date_sep2"] if groups["date_sep2"] else "")
+                + "%d"
+            )
+            if groups["time"]:
+                timestamp_format += (
+                    ""
+                    + (groups["dt_separator"] if groups["dt_separator"] else "")
+                    + "%H"
+                    + (groups["time_sep1"] if groups["time_sep1"] else "")
+                    + "%M"
+                    # + groups["date_sep2"]
+                    # + "%S"
+                )
+    return timestamp_format
+
+
 def update_timestamp(file_basename, add_missing=True, new_post=False):
     """Update timestamp in filename."""
     # infos / tests:
-    # get pre and post part of current name
-    # Test_20150218_1852_sk
-    # reTest = re.compile(r"^(.*_)2015")
-    # res = reTest.search("Hallo_2015")
-    # Gui.SendMsgToActiveView("Save")
+    # goal:
+    # - get pre and post part of current name
+    # - get date & time format
+    #
     # App.ActiveDocument.Name
     # --> "Test_20150218_1852_sk"
     # App.getDocument("Test_20150218_1852_sk").save()
     # App.ActiveDocument.FileName
     # u'C:/_Local_DATA/_projects/2015_01_00__xxxx/Zeichnungen/Test_20150219_1106_sk.FCStd'
-    re_timestamp = re.compile(r"^(.*_)20[0-9]{2}[0-9]{2}[0-9]{2}_[0-9]{4}(_.*$)?")
+    #
+    # https://extendsclass.com/regex-tester.html#python
+    # Test_20150218_1852_sk
+    # Test_20150219_1106_sk.FCStd
+    # test2_20150219_hello
+    # ping pong 20220518 welcome
+    # ping 2022-05-18 22:00 welcome
+    #
+    # this matches only the date time
+    # r"((20[0-9]{2}-??[0-9]{2}-??[0-9]{2})[-_\s\:]?([0-9]{2}-??[0-9]{2})?)"
+    re_timestamp = re.compile(
+        r"""
+            ^(?P<pre>.*?)
+            (?P<datetime>
+                (?P<date>
+                    20[0-9]{2}
+                    (?P<date_sep1>[-_\s:])?
+                    [0-9]{2}
+                    (?P<date_sep2>[-_\s:])?
+                    [0-9]{2}
+                )
+                (?P<time>
+                    (?P<dt_separator>[-_\s])?
+                    [0-9]{2}
+                    (?P<time_sep1>[-_\s:])?
+                    [0-9]{2}
+                )?
+            )
+            (?P<post>
+                .*?$
+            )?
+        """,
+        flags=re.VERBOSE,
+    )
+    timestamp_format = "%Y%m%d"
     re_timestamp_match = re_timestamp.search(file_basename)
     if re_timestamp_match:
-        pre_part = re_timestamp_match.groups()[0]
-        post_part = re_timestamp_match.groups()[1]
+        groups = re_timestamp_match.groupdict()
+        # recreate date-time format
+        timestamp_format = convert_timestampstring_to_format(groups["datetime"])
+        # build new filename
         if new_post:
-            file_basename_new = pre_part + time.strftime("%Y%m%d_%H%M") + new_post
+            file_basename_new = (
+                ""
+                + (groups["pre"] if groups["pre"] else "")
+                + time.strftime(timestamp_format)
+                + new_post
+            )
         else:
-            file_basename_new = pre_part + time.strftime("%Y%m%d_%H%M") + post_part
+            file_basename_new = (
+                ""
+                + (groups["pre"] if groups["pre"] else "")
+                + time.strftime(timestamp_format)
+                + (groups["post"] if groups["post"] else "")
+            )
     else:
         if add_missing:
-            file_basename_new = file_basename + time.strftime("%Y%m%d_%H%M")
+            file_basename_new = file_basename + time.strftime(timestamp_format)
             if new_post:
                 file_basename_new = file_basename_new + new_post
         else:
@@ -203,4 +296,5 @@ def save_active_doc_with_timestamp(args):
 
 #
 
-g_exportedScripts = (save_active_doc_with_timestamp, test)
+# g_exportedScripts = (save_active_doc_with_timestamp, test)
+g_exportedScripts = (save_active_doc_with_timestamp,)
