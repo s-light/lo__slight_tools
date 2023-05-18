@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+     viewBox="0 0 32 32"
+     version="1.1"
+     id="svg6"
+     sodipodi:docname="document-save-SQL-dark.svg"
+     inkscape:version="1.2.2 (1:1.2.2+202212051551+b0a8486541)"
+     inkscape:export-filename="document-save-SQL-dark.png"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96"
+     width="32"
+     height="32"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <metadata
+         id="metadata10">
+        <rdf:RDF>
+            <cc:Work
+                 rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type
+                     rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+            </cc:Work>
+        </rdf:RDF>
+    </metadata>
+    <sodipodi:namedview
+         pagecolor="#ffffff"
+         bordercolor="#666666"
+         borderopacity="1"
+         objecttolerance="10"
+         gridtolerance="10"
+         guidetolerance="10"
+         inkscape:pageopacity="0"
+         inkscape:pageshadow="2"
+         inkscape:window-width="3840"
+         inkscape:window-height="2087"
+         id="namedview8"
+         showgrid="true"
+         inkscape:zoom="49.722325"
+         inkscape:cx="4.0122822"
+         inkscape:cy="16.863652"
+         inkscape:window-x="1"
+         inkscape:window-y="0"
+         inkscape:window-maximized="1"
+         inkscape:current-layer="svg6"
+         inkscape:document-rotation="0"
+         inkscape:showpageshadow="0"
+         inkscape:pagecheckerboard="0"
+         inkscape:deskcolor="#d1d1d1">
+        <inkscape:grid
+             type="xygrid"
+             id="grid1381"
+             originx="0"
+             originy="0"
+             units="px"
+             spacingx="1"
+             spacingy="1"
+             empspacing="8" />
+    </sodipodi:namedview>
+    <defs
+         id="defs3051">
+        <style
+             type="text/css"
+             id="current-color-scheme">
+      .ColorScheme-Text {
+        color:#eff0f1;
+      }
+      </style>
+    </defs>
+    <path
+         id="path878"
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#eff0f1;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.999999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate;stop-color:#000000;stop-opacity:1"
+         d="M 2.0000001,2 V 2.00341 3.7533185 30.001948 H 3.7499086 9.9650819 V 28.252041 H 8.9996341 V 17.75259 H 24.748811 V 16.002682 H 8.9996341 7.2497256 V 28.252041 H 3.7499086 V 3.7533263 h 5.2497255 v 6.9996297 1.749909 H 22.998902 V 10.752956 3.7533263 h 0.512669 l 4.737057,4.7370569 V 9.0030519 17.75259 h 1.749908 V 9.0030519 7.7794829 h -0.01365 L 29.998536,7.7623939 24.236142,2 24.222492,2.017097 V 2 h -1.22359 z m 8.7495429,1.7533263 h 6.825327 v 6.9996297 h -6.825327 z"
+         sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccc" />
+    <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13px;line-height:100%;font-family:Overlock;-inkscape-font-specification:'Overlock Bold';letter-spacing:0px;word-spacing:0px;fill:#eff0f1;fill-opacity:1;stroke:none;stroke-width:0.999999"
+         x="9.1508656"
+         y="28.53764"
+         id="text1329"><tspan
+             sodipodi:role="line"
+             id="tspan1327"
+             x="9.1508656"
+             y="28.53764"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13px;font-family:Overlock;-inkscape-font-specification:'Overlock Bold';fill:#eff0f1;fill-opacity:1;stroke-width:0.999999">SQL</tspan></text>
+</svg>
